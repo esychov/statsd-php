@@ -1,15 +1,11 @@
 <?php
 
-namespace Domnikl\Statsd\Connection;
-
-use Domnikl\Statsd\Connection as Connection;
-
 /**
  * drops all requests, useful for dev environments
  *
  * @author Andrei Serdeliuc <andrei@serdeliuc.ro>
  */
-class Blackhole implements Connection
+class StatsdBlackhole implements StatsdConnection
 { 
     /**
      * Drops any incoming messages

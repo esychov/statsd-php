@@ -21,8 +21,8 @@ The best way to install statsd-php is to use Composer and add the following to y
 
 ```php
 <?php
-$connection = new \Domnikl\Statsd\Connection\Socket('localhost', 8125);
-$statsd = new \Domnikl\Statsd\Client($connection, "test.namespace");
+$connection = new StatsdSocket('localhost', 8125);
+$statsd = new StatsdClient($connection, "test.namespace");
 
 // the global namespace is prepended to every key (optional)
 $statsd->setNamespace("test");
@@ -73,7 +73,7 @@ $statsd->gauge('foobar', 3);
 
 ## disabling sending of metrics
 
-To disable sending any metrics, you can use the `Domnikl\Statsd\Connection\Blackhole` connection class instead of the default socket abstraction. This may be incredibly useful for feature flags.
+To disable sending any metrics, you can use the `StatsdBlackhole` connection class instead of the default socket abstraction. This may be incredibly useful for feature flags.
 
 ## Author
 

@@ -1,8 +1,6 @@
 <?php
 
-namespace Domnikl\Test\Statsd;
-
-require_once __DIR__ . '/../../../../lib/Domnikl/Statsd/Connection.php';
+require_once __DIR__ . '/../../../lib/Statsd/Connection.php';
 
 /**
  * Mock object that just sets the last message in an
@@ -10,7 +8,7 @@ require_once __DIR__ . '/../../../../lib/Domnikl/Statsd/Connection.php';
  *
  */
 class ConnectionMock 
-	implements \Domnikl\Statsd\Connection
+	implements StatsdConnection
 {
     public $messages = array();
 

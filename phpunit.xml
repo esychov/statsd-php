@@ -13,9 +13,9 @@
     strict="false">
     <testsuites>
         <testsuite name="statsd-php Test Suite">
-            <file>test/lib/Domnikl/Statsd/ClientTest.php</file>
-			<file>test/lib/Domnikl/Statsd/ClientBatchTest.php</file>
-            <file>test/lib/Domnikl/Statsd/Connection/SocketTest.php</file>
+            <file>test/lib/Statsd/ClientTest.php</file>
+			<file>test/lib/Statsd/ClientBatchTest.php</file>
+            <file>test/lib/Statsd/Connection/SocketTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

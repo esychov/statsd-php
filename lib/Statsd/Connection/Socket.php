@@ -1,16 +1,12 @@
 <?php
 
-namespace Domnikl\Statsd\Connection;
-
-use Domnikl\Statsd\Connection as Connection;
-
 /**
  * encapsulates the connection to the statsd service
  *
  * @author Dominik Liebler <liebler.dominik@googlemail.com>
  */
-class Socket
-	implements Connection
+class StatsdSocket
+	implements StatsdConnection
 {
     /**
      * host name
@@ -66,7 +62,7 @@ class Socket
             try {
                 // total suppression of errors
                 @fwrite($this->_socket, $message);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 // ignore it: stats logging failure shouldn't stop the whole app
             }
         }

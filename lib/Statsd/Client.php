@@ -1,13 +1,11 @@
 <?php
 
-namespace Domnikl\Statsd;
-
 /**
  * the statsd client
  *
  * @author Dominik Liebler <liebler.dominik@googlemail.com>
  */
-class Client
+class StatsdClient
 {
     /**
      * Connection object that messages get send to
@@ -57,7 +55,7 @@ class Client
      * @param Connection $connection
      * @param string $namespace global key namespace
      */
-    public function __construct(Connection $connection, $namespace = '')
+    public function __construct(StatsdConnection $connection, $namespace = '')
     {
         $this->_connection = $connection;
         $this->_namespace = (string) $namespace;
@@ -202,12 +200,12 @@ class Client
      * returns the value the Closure returned
      *
      * @param string $key
-     * @param \Closure $_block
+     * @param Closure $_block
      * @param int $sampleRate (optional) default = 1
      *
      * @return mixed
      */
-    public function time($key, \Closure $_block, $sampleRate = 1)
+    public function time($key, Closure $_block, $sampleRate = 1)
     {
         $this->startTiming($key);
         $return = $_block();

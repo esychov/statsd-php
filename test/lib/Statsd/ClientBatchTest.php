@@ -1,13 +1,9 @@
 <?php
 
-namespace Domnikl\Test\Statsd;
-
-require_once __DIR__ . '/../../../../lib/Domnikl/Statsd/Client.php';
+require_once __DIR__ . '/../../../lib/Statsd/Client.php';
 require_once __DIR__ . '/ConnectionMock.php';
 
-use Domnikl\Statsd\Client as Client;
-
-class ClientBatchTest extends \PHPUnit_Framework_TestCase
+class ClientBatchTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var \Domnikl\Statsd\Client
@@ -22,8 +18,8 @@ class ClientBatchTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->_connection = new \Domnikl\Test\Statsd\ConnectionMock();
-        $this->_client = new Client($this->_connection);
+        $this->_connection = new ConnectionMock();
+        $this->_client = new StatsdClient($this->_connection);
     }
 
 	public function testInit()

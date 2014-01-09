@@ -1,13 +1,9 @@
 <?php
 
-namespace Domnikl\Test\Statsd;
-
-require_once __DIR__ . '/../../../../lib/Domnikl/Statsd/Client.php';
+require_once __DIR__ . '/../../../lib/Statsd/Client.php';
 require_once __DIR__ . '/ConnectionMock.php';
 
-use Domnikl\Statsd\Client as Client;
-
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var \Domnikl\Statsd\Client
@@ -22,19 +18,19 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->_connection = new \Domnikl\Test\Statsd\ConnectionMock();
-        $this->_client = new Client($this->_connection, 'test');
+        $this->_connection = new ConnectionMock();
+        $this->_client = new StatsdClient($this->_connection, 'test');
     }
 
     public function testInit()
     {
-        $client = new Client(new \Domnikl\Test\Statsd\ConnectionMock());
+        $client = new StatsdClient(new ConnectionMock());
         $this->assertEquals('', $client->getNamespace());
     }
 
     public function testNamespace()
     {
-        $client = new Client(new \Domnikl\Test\Statsd\ConnectionMock(), 'test.foo');
+        $client = new StatsdClient(new ConnectionMock(), 'test.foo');
         $this->assertEquals('test.foo', $client->getNamespace());
 
         $client->setNamespace('bar.baz');
